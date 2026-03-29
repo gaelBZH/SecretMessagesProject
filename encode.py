@@ -1,4 +1,5 @@
 from random import randint
+from preprocessing import text_to_list
 
 def word_exists(word, data_structure):
     """
@@ -63,3 +64,11 @@ def encode_text(L, D_words, D_letters):
     for word in L:
         encode_word(word, result, D_words, D_letters)
     return result
+
+def encode_message(message, D_words, D_letters):
+    """
+    Encodes a message as a list of integers.
+    """
+    parsed_text = text_to_list(message)
+    encoded_message = encode_text(parsed_text, D_words, D_letters)
+    return encoded_message

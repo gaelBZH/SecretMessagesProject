@@ -15,3 +15,9 @@ def list_to_word(L):
         if (word != ""):
             result += word[0]
     return result
+
+def list_to_string(L):
+    result = ""
+    for i in range(len(L)-1):
+        result += L[i] + " "
+    return result + L[-1]
