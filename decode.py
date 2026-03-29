@@ -17,6 +17,7 @@ def decode_text(L, data):
             result.pop()
             result.pop()
             letter_mode = True
+            temp = []
         if (len(temp) >= 2 and temp[-1] == "a" and temp[-2] == "a"):
             letter_mode = False
             temp.pop()
