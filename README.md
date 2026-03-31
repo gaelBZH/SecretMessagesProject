@@ -10,18 +10,18 @@ The main language of this repository is **Python**.
 ## Architecture ⚙️
 ```
 SecretMessagesProject
-├───data/
-├───.gitignore
-├───decode.py
-├───encode.py
-├───main.py
-├───preprocessing.py
-├───read_file.py
-└───README.md
+├─── data
+│   └─── lost.txt
+├─── decode.py
+├─── encode.py
+├─── main.py
+├─── preprocessing.py
+├─── read_file.py
+└─── README.md
 ```
-This repository contains **Python Files** and a `data/` folder containing source text book.
+This repository contains documented **Python Files**  and a `data/` folder containing source text book.
 
-## Clone this Repository
+## Clone this Repository 📦
 ##### HTTPS
 ```bash
 git clone https://github.com/gaelBZH/SecretMessagesProject.git
@@ -29,4 +29,24 @@ git clone https://github.com/gaelBZH/SecretMessagesProject.git
 ##### SSH
 ```bash
 git clone git@github.com:gaelBZH/SecretMessagesProject.git
+```
+
+## Use this Repository ✨
+⚠️ Prerequisites : `Python 3.x` must be installed on your system.
+##### Windows 11 (Powershell)
+```bash
+python .\main.py
+```
+
+##### Linux / macOS
+```bash
+python3 main.py
+```
+
+## Exemple 🖼️
+```
+What is your message ? hello world
+What is the switch ? 42
+The encoded message is : [65408, 32016, 51046, 20421, 67481, 15623, 31938, 46866, 67107, 39079]
+The decoded message is : hello world
 ```
