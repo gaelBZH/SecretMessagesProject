@@ -1,4 +1,5 @@
 from random import randint
+from read_file import create_histograms
 from preprocessing import text_to_list
 
 def word_exists(word, data_structure):
@@ -31,44 +32,46 @@ def get_index_letter(letter, D_letters):
     indexes = D_letters[letter]
     return indexes[randint(0, len(indexes)-1)] # returns a random element of indexes
 
-def encode_proper_word(word, result, D_letters, D_words):
+def encode_proper_word(word, result, D_letters, D_words, switch):
     """
     Encode a proper word. i.e. letter by letter.
     Returns a list of indexes.
     """
-    result.append(get_index_word("the", D_words))
-    result.append(get_index_word("the", D_words))
+    result.append(get_index_word("the", D_words)+switch)
+    result.append(get_index_word("the", D_words)+switch)
     for letter in word:
-        result.append(get_index_letter(letter, D_letters))
-    result.append(get_index_word("a", D_words))
-    result.append(get_index_word("a", D_words))
+        result.append(get_index_letter(letter, D_letters) + switch)
+    result.append(get_index_word("a", D_words)+switch)
+    result.append(get_index_word("a", D_words)+switch)
 
 
 
-def encode_word(word, result, D_words, D_letters):
+def encode_word(word, result, D_words, D_letters, switch):
     """
     Encode a word and appends in result the encoded word.
     """
     i = get_index_word(word, D_words)
     if (i == -1):
-        encode_proper_word(word, result, D_letters, D_words)
+        encode_proper_word(word, result, D_letters, D_words, switch)
     else:
-        result.append(i)
+        result.append(i + switch)
 
 
-def encode_text(L, D_words, D_letters):
+def encode_text(L, D_words, D_letters, switch):
     """
     Takes as parameter a list of words without punctuation and returns the encoded text.
     """
     result = []
     for word in L:
-        encode_word(word, result, D_words, D_letters)
+        encode_word(word, result, D_words, D_letters, switch)
     return result
 
-def encode_message(message, D_words, D_letters):
+def encode_message(message, data, switch=0):
     """
     Encodes a message as a list of integers.
     """
+    D_words, D_letters = create_histograms(data)
+
     parsed_text = text_to_list(message)
-    encoded_message = encode_text(parsed_text, D_words, D_letters)
+    encoded_message = encode_text(parsed_text, D_words, D_letters, switch)
     return encoded_message
