@@ -21,3 +21,10 @@ def list_to_string(L):
     for i in range(len(L)-1):
         result += L[i] + " "
     return result + L[-1]
+
+def getSwitch():
+    cin = input("What is the switch ? ")
+    if cin == "":
+        return 0
+    else:
+        return int(cin)
