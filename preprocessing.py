@@ -17,10 +17,13 @@ def list_to_word(L):
     return result
 
 def list_to_string(L):
-    result = ""
-    for i in range(len(L)-1):
-        result += L[i] + " "
-    return result + L[-1]
+    if L == []:
+        return ""
+    else:
+        result = ""
+        for i in range(len(L)-1):
+            result += L[i] + " "
+        return result + L[-1]
 
 def getSwitch():
     cin = input("What is the switch ? ")
